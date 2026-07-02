@@ -1,5 +1,6 @@
 package com.kk.woodcutter.Classes;
 
+import com.google.common.collect.ImmutableMap;
 import com.kk.woodcutter.Classes.Entity.ModWoodCutterEntityType;
 import com.kk.woodcutter.Classes.Entity.WoodCutterBlockEntity;
 import com.mojang.serialization.MapCodec;
@@ -17,6 +18,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.function.Function;
 
 public class WoodCutterBlock extends BlockWithEntity implements BlockEntityProvider {
 
@@ -48,6 +51,11 @@ public class WoodCutterBlock extends BlockWithEntity implements BlockEntityProvi
     }
 
     public VoxelShape getSHAPE() {
+        return SHAPE;
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
 
