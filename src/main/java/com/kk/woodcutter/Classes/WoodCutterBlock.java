@@ -51,6 +51,15 @@ public class WoodCutterBlock extends BlockWithEntity implements BlockEntityProvi
         return SHAPE;
     }
 
+    // Use mapping-compatible signatures (some mappings don't have ShapeContext class)
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos) {
+        return SHAPE;
+    }
+
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos) {
+        return SHAPE;
+    }
+
     @Override
     public boolean hasSidedTransparency(BlockState state) {
         return true;
