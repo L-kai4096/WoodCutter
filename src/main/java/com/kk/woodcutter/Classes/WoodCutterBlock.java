@@ -1,10 +1,8 @@
 package com.kk.woodcutter.Classes;
 
-import com.google.common.collect.ImmutableMap;
 import com.kk.woodcutter.Classes.Entity.ModWoodCutterEntityType;
 import com.kk.woodcutter.Classes.Entity.WoodCutterBlockEntity;
 import com.mojang.serialization.MapCodec;
-//import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -19,13 +17,11 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Function;
-
 public class WoodCutterBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final MapCodec<WoodCutterBlock> CODEC = createCodec(WoodCutterBlock::new);
 //    private final MapCodec<StonecutterBlock> CODEC = createCodec(StonecutterBlock::new);
-    private final Text TITLE = Text.translatable("title.woodCutter");
+    private final Text TITLE = Text.translatable("name.wood_cutter");
     private final VoxelShape SHAPE =  Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 9.0, 16.0);
 
     public WoodCutterBlock(AbstractBlock.Settings settings) {
@@ -51,15 +47,6 @@ public class WoodCutterBlock extends BlockWithEntity implements BlockEntityProvi
     }
 
     public VoxelShape getSHAPE() {
-        return SHAPE;
-    }
-
-    // Use mapping-compatible signatures (some mappings don't have ShapeContext class)
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos) {
-        return SHAPE;
-    }
-
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos) {
         return SHAPE;
     }
 
